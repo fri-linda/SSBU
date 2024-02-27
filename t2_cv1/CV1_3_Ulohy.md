@@ -7,13 +7,13 @@
 1.1.a. V databáze Genbank Nucleotide vyhľadajte "INS tunicates" (vyhľadanie INS génu)
    - Tunicates je druh živočíchov - Plášťovce
      
-  <img src="data/tunicates.jfif" alt="Workflow diagram" width="80%"/>
+  <img src="data/tunicates.jfif" alt="Workflow diagram" width="40%"/>
 
 1.1.b. Aký je názov hľadaného kódovaného génu ? (Názov nájdete v rámci "GENE" na začiatku vyhľadávania). Ako sa tento gén nazýva pri hľadaní u človeka ("INS homo sapiens") a aké sú jeho iné kódovania ?
 
 1.1.c. Vo vyhľadávaní pre gén "INS tunicates" vyberte sekvenciu mRNA pre organizmus Ciona intestinalis (Sumka trubičkovitá). Napíšte jej taxonomické zaradenie (nájdete v ORGANISM)
 
-  <img src="data/cionaIntestinalis.jpg" alt="Workflow diagram" width="80%"/>
+  <img src="data/cionaIntestinalis.jpg" alt="Workflow diagram" width="40%"/>
 
 1.1.d. Vo vlastnostiach nájdite reťazec kódovaných aminokyselín (transláciu):
 

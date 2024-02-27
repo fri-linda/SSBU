@@ -51,7 +51,7 @@
    - desktop - PyMOL, GeneiousPrime, 3DSlicer, ..
 - programovacie jazyky + knižnice (Python, MATLAB, R, C++, ..)
 
-<img src="data/libraries.png" alt="Libraries" width="80%"/>
+<img src="data/libraries.png" alt="Libraries" width="45%"/>
    
 + výber správneho nástroja / knižnice
 + určiť si potrebné metódy pre spracovanie a analýzu
