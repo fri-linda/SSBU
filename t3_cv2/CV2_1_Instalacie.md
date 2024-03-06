@@ -6,6 +6,9 @@
 
 Potrebné stiahnuť inštalačný súbor - www.python.org/downloads/
 
+**Pri inštalácii vyberte checkbox Add python.exe to path**
+
+
 <img src="data/python1.png" width="70%"/>
 
 
@@ -28,14 +31,23 @@ V príkazovom riadku:
 
 V príkazovom riadku:
 - inštalácia jupyter lab
-`pip install jupyterlab`
+  
+`pip install jupyter`
 
 - spustenie jupyter lab
-`jupyter lab`
+`jupyter lab` (alebo `python -m jupyterlab`)
 
 <img src="data/python5.png" width="100%"/>
 
 <img src="data/python6.png" width="100%"/>
+
+**Pokiaľ inštalácia zozbrazila varovanie, že cesta nie je pridaná v premenných prostredia, je potrebné ju pridať manuálne:**
+
+<img src="data/env1.png" width="40%"/>
+
+<img src="data/env2.png" width="40%"/>
+
+**Po pridaní je potrebné odhlásiť a prihlásiť používateľa, aby sa zmeny aplikovali.**
 
 ----
 #### Inštalácia R
@@ -56,36 +68,26 @@ Potrebné stiahnuť inštalačný súbor - www.cran.r-project.org/bin/windows/ba
 ----
 #### Inštalácia R kernelu
 
-V príkazovom riadku:
-- Zobrazenie dostupnych jupyter kernelov:
-
-`jupyter kernelspec list` 
-
-Spustenie R v konzole (z miesta kde sa nachadza R.exe (podľa inštalácie), predvolene C:\ProgramFiles\R\bin) - **spustiť ako administrátor**
+Spustenie R GUI, alebo R v konzole (z miesta kde sa nachadza R.exe (podľa inštalácie), predvolene C:\ProgramFiles\R\bin)
 
 <img src="data/r_kernel1.png " alt="Workflow diagram" width="60%"/>
 <img src="data/r_kernel2.png " alt="Workflow diagram" width="60%"/>
 
-V R konzole:
+V R GUI/R konzole: (okná stačí preklikať)
+
+`install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))`
 
 `install.packages('IRkernel')`
 
+`IRkernel::installspec(user=FALSE)`
+
 <img src="data/r_kernel3.png " alt="Workflow diagram" width="60%"/>
-
-V R konzole:
-
-`IRkernel::installspec()`
-
-`quit()`
-
-`Save workspace image?: n`
 
 <img src="data/r_kernel4.png " alt="Workflow diagram" width="60%"/>
 
 ----
 #### Clone/Fork Git repozitára
-(ak ešte nemáte)
-
+(voliteľné)
 
 ##### Clone
 V príkazovom riadku:
@@ -110,7 +112,7 @@ V príkazovom riadku:
 
 <img src="data/git_fork3.png " alt="Workflow diagram" width="60%"/>
 
-- Pomocou tlačidla "Sync fork" si synchronizujete zmeny v pôvodnom repozitári s vaším repozitárom 
+- Pomocou tlačidla "Sync fork" si synchronizujete zmeny v pôvodnom repozitári s vašim repozitárom 
   
 <img src="data/git_fork4.png " alt="Workflow diagram" width="35%"/>
 
@@ -120,14 +122,14 @@ Následne je ešte potrebný clone svojho repozitára.
 
 V príkazovom riadku v naklonovanom git repozitári:
 
-- spustenie jupyter lab
+- spustenie jupyter lab 
   
-`jupyter lab`
+`jupyter lab` (alebo `python -m jupyterlab`)
 
 <img src="data/final1.png " alt="Workflow diagram" width="100%"/>
 
 - už je dostupný aj R kernel
-- Vyberte R skript
+- Vyberte Notebook s R kernelom
 
 <img src="data/final2.png " alt="Workflow diagram" width="80%"/>
 
