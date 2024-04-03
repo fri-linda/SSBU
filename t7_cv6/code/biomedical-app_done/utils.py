@@ -9,7 +9,7 @@ def update_patient_data(df_reactive, new_patient_id, file_info):
     if file_info:
         new_data = pd.read_csv(file_info[0]["datapath"], header=[0, 1])
         data.patient_ids.append(new_data.columns[0][0])
-        new_data.set_index(df_reactive.index, inplace=True)
+        new_data.set_index(df_reactive.get().index, inplace=True)
         current_df = pd.concat([current_df, new_data], axis=1)
         operation_result = f"Patient Data for {data.patient_ids[-1]} read from CSV successfully"
     else:

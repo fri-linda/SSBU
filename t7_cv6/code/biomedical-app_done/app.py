@@ -17,11 +17,10 @@ def server(input, output, session):
     @reactive.event(input.add_patient)
     def _():
 
-        if input.new_patient_id():
-            new_patient_id = input.new_patient_id()
-            file_info = input.file1()
-            result = utils.update_patient_data(df_reactive, new_patient_id, file_info)
-            txt_status.set(result)
+        new_patient_id = input.new_patient_id()
+        file_info = input.file1()
+        result = utils.update_patient_data(df_reactive, new_patient_id, file_info)
+        txt_status.set(result)
 
     @reactive.Effect
     @reactive.event(input.update_data)
