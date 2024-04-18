@@ -27,6 +27,7 @@ class Experiment:
         self.models_params = models_params
         self.n_replications = n_replications
         self.results = pd.DataFrame()
+        self.datascaler = DataScaler()
 
     def run(self, X, y):
         """Run the experiment over multiple replications."""
@@ -42,19 +43,20 @@ class Experiment:
         """Run a single replication of training and evaluating the models."""
         print(f"Starting replication {replication + 1}/{self.n_replications}.")
         X_resampled, y_resampled = self.balance_dataset(X, y)
-        datascaler = DataScaler()  # Instantiate the DataScaler class
-        for model_name, model_params in self.models_params.items():
-            self.train_and_evaluate_model(model_name, model_params, X_resampled, y_resampled, datascaler, replication)
+        
+        for model_name,_ in self.models_params.items():
+            self.train_and_evaluate_model(model_name, X_resampled, y_resampled, self.datascaler, replication)
 
     def balance_dataset(self, X, y):
         """Balance the dataset using SMOTE."""
         smote = SMOTE()
         return smote.fit_resample(X, y)
 
-    def train_and_evaluate_model(self, model_name, model_params, X_resampled, y_resampled, datascaler, replication):
+    def train_and_evaluate_model(self, model_name, X_resampled, y_resampled, datascaler, replication):
         """Train and evaluate a single model."""
         skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=0)
-        optimizer = ModelOptimizer(self.models[model_name], model_params)
+        optimizer = ModelOptimizer(self.models[model_name], self.models_params[model_name])
+
         best_params = optimizer.grid_search(X_resampled, y_resampled, cv=skf)
 
         # Train the model with the best parameters
