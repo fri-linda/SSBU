@@ -57,6 +57,28 @@ Rozdelenie údajov je kľúčové pre natrénovanie a overenie výkonnosti model
 
 **Evaluácia modelu:** Model je hodnotený pomocou špecifických metrík vhodných pre daný typ úlohy strojového učenia. Pri klasifikácii môžu byť to presnosť, F1 skóre, recall, precision a ROC AUC. Pri regresii sa často používajú RMSE (Root Mean Square Error), MAE (Mean Absolute Error) a R² skóre. Výber správnej metriky závisí od cieľov konkrétneho modelu a údajov, na ktorých pracuje.
 
+##### Senzitivita (Recall)
+Senzitivita určuje, aká je pravdepodobnosť, že test správne identifikuje pacientov s daným ochorením. Vypočíta sa ako podiel počtu správne pozitívnych výsledkov (true positive, TP) a celkového počtu pacientov s daným ochorením (TP + FN, kde FN sú falošne negatívne).
+
+##### Špecificita
+Špecificita ukazuje, aká je pravdepodobnosť, že test správne identifikuje zdravých jedincov (bez ochorenia). Vypočíta sa ako podiel počtu správne negatívnych výsledkov (true negative, TN) a celkového počtu zdravých jedincov (TN + FP, kde FP sú falošne pozitívne).
+
+##### Pozitívna prediktívna hodnota (PPV)
+Pozitívna prediktívna hodnota označuje pravdepodobnosť, že osoba s pozitívnym testom skutočne má dané ochorenie. Vypočíta sa ako podiel TP a celkového počtu pozitívnych výsledkov testu (TP + FP).
+
+##### Negatívna prediktívna hodnota (NPV)
+Negatívna prediktívna hodnota označuje pravdepodobnosť, že osoba s negatívnym testom nemá dané ochorenie. Vypočíta sa ako podiel TN a celkového počtu negatívnych výsledkov testu (TN + FN).
+
+##### Precision (presnosť)
+Precision, alebo presnosť, je podobná PPV a označuje podiel TP voči všetkým pozitívnym predikciám testu (TP + FP).
+
+##### ROC-AUC
+ROC krivka (Receiver Operating Characteristic) graficky znázorňuje výkonnosť diagnostického testu a AUC (Area Under the Curve) je miera, ktorá sumarizuje celkovú výkonnosť testu. AUC hodnota 1 znamená dokonalý test, hodnota 0.5 znamená, že test je náhodný.
+
+##### Pomery pravdepodobností
+- **Pomer pravdepodobnosti pre pozitívny výsledok (PLR, Positive Likelihood Ratio):** PLR hovorí o tom, ako sa zvyšuje pravdepodobnosť ochorenia pri pozitívnom teste. Vypočíta sa ako podiel senzitivity a 1 - špecificity.
+- **Pomer pravdepodobnosti pre negatívny výsledok (NLR, Negative Likelihood Ratio):** NLR ukazuje, ako sa znižuje pravdepodobnosť ochorenia pri negatívnom teste. Vypočíta sa ako podiel 1 - senzitivity a špecificity.
+- 
 Python a knižnica scikit-learn poskytujú viaceré funkcie na meranie úspešnosti modelov strojového učenia, napr.:
 
 - `accuracy_score(y_true, y_pred)`: Vypočíta presnosť, podiel správne predpovedaných vzoriek ku celkovému počtu vzoriek. Je to jednoduchá metrika vhodná pre balansované datasety.
