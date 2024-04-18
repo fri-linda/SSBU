@@ -78,7 +78,7 @@ ROC krivka (Receiver Operating Characteristic) graficky znázorňuje výkonnosť
 ##### Pomery pravdepodobností
 - **Pomer pravdepodobnosti pre pozitívny výsledok (PLR, Positive Likelihood Ratio):** PLR hovorí o tom, ako sa zvyšuje pravdepodobnosť ochorenia pri pozitívnom teste. Vypočíta sa ako podiel senzitivity a 1 - špecificity.
 - **Pomer pravdepodobnosti pre negatívny výsledok (NLR, Negative Likelihood Ratio):** NLR ukazuje, ako sa znižuje pravdepodobnosť ochorenia pri negatívnom teste. Vypočíta sa ako podiel 1 - senzitivity a špecificity.
-
+- 
 Python a knižnica scikit-learn poskytujú viaceré funkcie na meranie úspešnosti modelov strojového učenia, napr.:
 
 - `accuracy_score(y_true, y_pred)`: Vypočíta presnosť, podiel správne predpovedaných vzoriek ku celkovému počtu vzoriek. Je to jednoduchá metrika vhodná pre balansované datasety.

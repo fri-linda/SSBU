@@ -43,6 +43,7 @@ class Experiment:
         """Run a single replication of training and evaluating the models."""
         print(f"Starting replication {replication + 1}/{self.n_replications}.")
         X_resampled, y_resampled = self.balance_dataset(X, y)
+        
         for model_name,_ in self.models_params.items():
             self.train_and_evaluate_model(model_name, X_resampled, y_resampled, self.datascaler, replication)
 
@@ -55,6 +56,7 @@ class Experiment:
         """Train and evaluate a single model."""
         skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=0)
         optimizer = ModelOptimizer(self.models[model_name], self.models_params[model_name])
+
         best_params = optimizer.grid_search(X_resampled, y_resampled, cv=skf)
 
         # Train the model with the best parameters
