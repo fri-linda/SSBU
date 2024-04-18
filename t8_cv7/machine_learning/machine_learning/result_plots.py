@@ -24,7 +24,6 @@ class Plotter:
             if i == 0:
                 ax.legend()
         plt.tight_layout()
-        plt.savefig('../outputs/density_metrics.png')
         plt.show()
 
     def plot_evaluation_metric_over_replications(self, all_metric_results, title, metric_name):
@@ -36,15 +35,14 @@ class Plotter:
         """
         plt.figure(figsize=(10, 5))
         colors = ['green', 'orange', 'blue']  # Extend the color list as needed
-        for i, (model_name, accuracies) in enumerate(all_metric_results.items()):
-            plt.plot(accuracies, label=f"{model_name} per replication", alpha=0.5, color=colors[i % len(colors)])
-            plt.axhline(y=np.mean(accuracies), color=colors[i % len(colors)], linestyle='--',
+        for i, (model_name, values) in enumerate(all_metric_results.items()):
+            plt.plot(values, label=f"{model_name} per replication", alpha=0.5, color=colors[i % len(colors)])
+            plt.axhline(y=np.mean(values), color=colors[i % len(colors)], linestyle='--',
                         label=f"{model_name} average")
         plt.title(title)
         plt.xlabel('Replication')
         plt.ylabel(metric_name)
         plt.legend()
-        plt.savefig('../outputs/' + metric_name + '_over_replications.png')
         plt.show()
 
     def plot_confusion_matrices(self, confusion_matrices):
@@ -60,7 +58,6 @@ class Plotter:
             plt.title(f'Average Confusion Matrix: {model_name}')
             plt.xlabel('Predicted label')
             plt.ylabel('True label')
-            plt.savefig('../outputs/confusion_matrix_' + model_name + '.png')
             plt.show()
 
     def print_best_parameters(self, results):
